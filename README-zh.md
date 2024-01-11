@@ -76,7 +76,7 @@ cd examples/text-to-text
 python download.py
 ```
 
-[examples.py](example/text-to-text/example.py)中填入了flan-t5-base对应的初始化代码和推理代码。在inference函数中我们从GET请求中拿出text参数作为模型的文本输入，将输出文本以json响应返回。
+[examples.py](examples/text-to-text/example.py)中填入了flan-t5-base对应的初始化代码和推理代码。在inference函数中我们从GET请求中拿出text参数作为模型的文本输入，将输出文本以json响应返回。
 
 在本地的8888端口启动controller：
 
@@ -127,7 +127,7 @@ cd examples/image-to-text
 python download.py
 ```
 
-[examples.py](example/image-to-text/example.py)中填入了blip-image-captioning-large对应的初始化代码和推理代码。在inference函数中我们从GET请求中读取image文件作为模型的图像输入，将输出文本以json响应返回。
+[examples.py](examples/image-to-text/example.py)中填入了blip-image-captioning-large对应的初始化代码和推理代码。在inference函数中我们从GET请求中读取image文件作为模型的图像输入，将输出文本以json响应返回。
 
 同样的[query.py](examples/image-to-text/query.py)是API调用代码，[run_all.sh](examples/image-to-text/run_all.sh)是启动脚本，[test_loading.py](examples/image-to-text/query.py)是压力测试代码，[kill_all.sh](examples/image-to-text/kill_all.sh)是结束脚本，可以依次运行试用。
 
