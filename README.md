@@ -78,7 +78,7 @@ cd examples/text-to-text
 python download.py
 ```
 
-[examples.py](https://chat.openai.com/c/example/text-to-text/example.py) contains the corresponding initialization and inference code for flan-t5-base. In the inference function, we extract the text parameter from the GET request as the model's text input and return the output text in a JSON response.
+[examples.py](example/text-to-text/example.py) contains the corresponding initialization and inference code for flan-t5-base. In the inference function, we extract the text parameter from the GET request as the model's text input and return the output text in a JSON response.
 
 Start a controller on local port 8888:
 
@@ -92,19 +92,19 @@ Deploy a worker on local port 8880, on GPU 0:
 python example.py --worker --port 8880 --name custom --device 0 --controller-addr http://localhost:8888 --worker-addr http://localhost:8880
 ```
 
-Once deployed, test if the API is functional with code in [query.py](https://chat.openai.com/c/examples/text-to-text/query.py):
+Once deployed, test if the API is functional with code in [query.py](examples/text-to-text/query.py):
 
 ```bash
 python query.py
 ```
 
-Conduct a load test of the API with [load_testing.py](https://chat.openai.com/c/examples/text-to-text/load_testing.py), which outputs the API system's QPS (queries per second):
+Conduct a load test of the API with [load_testing.py](examples/text-to-text/load_testing.py), which outputs the API system's QPS (queries per second):
 
 ```bash
 python load_testing.py
 ```
 
-Next, deploy multiple workers. First, shut down the existing controller and worker. To conveniently start the controller and all workers at once, use [run_all.sh](https://chat.openai.com/c/examples/text-to-text/run_all.sh); the output of the controller and each worker will be saved in corresponding log files.
+Next, deploy multiple workers. First, shut down the existing controller and worker. To conveniently start the controller and all workers at once, use [run_all.sh](examples/text-to-text/run_all.sh); the output of the controller and each worker will be saved in corresponding log files.
 
 ```bash
 bash run_all.sh
@@ -112,7 +112,7 @@ bash run_all.sh
 
 After starting all workers, conduct the stress test again to see the QPS nearly linearly increasing with the number of workers. Test results on a 3090 machine show: 1 GPU QPS=12.92, 4 GPUs QPS=47.07.
 
-To end the service and shut down all controllers and workers, use [kill_all.sh](https://chat.openai.com/c/examples/text-to-text/kill_all.sh):
+To end the service and shut down all controllers and workers, use [kill_all.sh](examples/text-to-text/kill_all.sh):
 
 ```bash
 bash kill_all.sh
@@ -133,7 +133,7 @@ python download.py
 
 The same [query.py](examples/image-to-text/query.py) is for API calling, [run_all.sh](examples/image-to-text/run_all.sh) for starting the service, [test_loading.py](examples/image-to-text/query.py) for load testing, and [kill_all.sh](examples/image-to-text/kill_all.sh) for ending the service; these can be run sequentially for trial use.
 
-In this example, we have written a frontend interface [index.html](https://chat.openai.com/c/examples/image-to-text/index.html). After starting the service, you can access the frontend by entering the following IP address in a browser.
+In this example, we have written a frontend interface [index.html](examples/image-to-text/index.html). After starting the service, you can access the frontend by entering the following IP address in a browser.
 
 
 ```bash
