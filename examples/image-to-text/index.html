@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Model Serve Demo</title>
+</head>
+<body>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="image" id="imageInput">
+    </form>
+    <br>
+    <img id="previewImage" src="" alt="Image preview" style="display: none; max-width: 200px; height: auto;">
+    <div id="textDisplay"></div>
+</body>
+<script>
+    document.getElementById('imageInput').addEventListener('change', function(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('previewImage').src = e.target.result;
+                document.getElementById('previewImage').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+        var container = document.getElementById('textDisplay');
+        container.innerHTML = '';
+
+        var formData = new FormData(document.getElementById('uploadForm'));
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/custom', true);
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                container.innerText = data.text;
+            } else {
+                document.getElementById('textDisplay').innerText = 'Request Failed';
+            }
+        };
+        xhr.send(formData);
+    });
+</script>
+</html>

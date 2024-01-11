@@ -1,0 +1,4 @@
+django
+django-apscheduler
+django-cors-headers
+requests
