@@ -78,7 +78,7 @@ cd examples/text-to-text
 python download.py
 ```
 
-[examples.py](examples/text-to-text/example.py) contains the corresponding initialization and inference code for flan-t5-base. In the inference function, we extract the text parameter from the GET request as the model's text input and return the output text in a JSON response.
+[example.py](examples/text-to-text/example.py) contains the corresponding initialization and inference code for flan-t5-base. In the inference function, we extract the text parameter from the GET request as the model's text input and return the output text in a JSON response.
 
 Start a controller on local port 8888:
 
@@ -129,7 +129,7 @@ cd examples/image-to-text
 python download.py
 ```
 
-[examples.py](examples/image-to-text/example.py) includes the initialization and inference code corresponding to the Salesforce/blip-image-captioning-large model. In the inference function, we read the image file from the GET request as the model's image input and return the output text in a JSON response.
+[example.py](examples/image-to-text/example.py) includes the initialization and inference code corresponding to the Salesforce/blip-image-captioning-large model. In the inference function, we read the image file from the GET request as the model's image input and return the output text in a JSON response.
 
 The same [query.py](examples/image-to-text/query.py) is for API calling, [run_all.sh](examples/image-to-text/run_all.sh) for starting the service, [test_loading.py](examples/image-to-text/query.py) for load testing, and [kill_all.sh](examples/image-to-text/kill_all.sh) for ending the service; these can be run sequentially for trial use.
 
